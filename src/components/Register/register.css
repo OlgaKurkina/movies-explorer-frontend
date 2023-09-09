@@ -1,0 +1,97 @@
+.register {
+  background-color: rgb(255, 255, 255, 1);
+  padding: 0 70px;
+}
+
+.logo_place_register {
+  margin: 70px 0 0 372px;
+}
+
+.register__form {
+  display: flex;
+  flex-direction: column;
+  padding: 42px 442px 5px 442px;
+}
+
+@media screen and (max-width: 1279px) {
+  .register {
+    padding-top: 87px;
+    margin: 0 auto;
+    max-width: 396px;
+  }
+
+  .logo_place_register {
+    margin: 70px 0 0 0;
+  }
+
+  .wellcome {
+    padding: 40px 0 0 0;
+  }
+
+  .register__form {
+    padding: 42px 0 5px 0;
+    max-width: 396px;
+    margin: 0 auto;
+  }
+
+  .input {
+    margin-bottom: 31px;
+  }
+
+  .form__button {
+    margin-top: 123px;
+  }
+
+  .redirect {
+    max-width: 396px;
+    padding: 15px 0 5px 0;
+    margin: 0 auto;
+  }
+
+  .redirect__text {
+    margin: 0;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .register {
+    padding: 0;
+    margin: 0 auto;
+    max-width: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .logo_place_register {
+    margin: 0 auto;
+    padding: 56px 0 0 0;
+  }
+
+  .wellcome {
+    padding: 51px 0 0 0;
+    text-align: center;
+  }
+
+  .register__form {
+    padding: 84px 0 5px 0;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .form__button {
+    margin-top: 210px;
+  }
+
+  .redirect {
+    max-width: 260px;
+    padding: 10px 0 5px 0;
+    margin: 0 auto;
+  }
+
+  .redirect__text {
+    font-size: 12px;
+    margin-bottom: 23px;
+  }
+}
