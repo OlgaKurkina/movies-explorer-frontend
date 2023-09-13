@@ -10,12 +10,21 @@
 .register__form {
   display: flex;
   flex-direction: column;
-  padding: 42px 442px 5px 442px;
+  padding: 42px 442px 0 442px;
+}
+
+.label_place_register {
+  flex-direction: column;
+}
+
+.redirect__text {
+  margin: 0;
+  font-size: 14px;
 }
 
 @media screen and (max-width: 1279px) {
   .register {
-    padding-top: 87px;
+    padding-top: 162px;
     margin: 0 auto;
     max-width: 396px;
   }
@@ -35,11 +44,11 @@
   }
 
   .input {
-    margin-bottom: 31px;
+    margin-bottom: 24px;
   }
 
-  .form__button {
-    margin-top: 123px;
+  .form__button_place_register {
+    margin-top: 134px;
   }
 
   .redirect {
@@ -70,7 +79,7 @@
   }
 
   .wellcome {
-    padding: 51px 0 0 0;
+    padding: 49px 0 0 0;
     text-align: center;
   }
 
@@ -80,8 +89,8 @@
     margin: 0 auto;
   }
 
-  .form__button {
-    margin-top: 210px;
+  .form__button_place_register {
+    margin-top: 219px;
   }
 
   .redirect {
@@ -93,5 +102,9 @@
   .redirect__text {
     font-size: 12px;
     margin-bottom: 23px;
+  }
+
+  .logo__link {
+    margin: 0 auto;
   }
 }

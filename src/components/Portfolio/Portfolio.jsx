@@ -1,5 +1,5 @@
 import React from "react";
-import arrowLanding from "../../images/arrow-landing.png";
+import arrowLanding from "../../images/arrow-landing.svg";
 import "./portfolio.css";
 
 export default function Portfolio() {
@@ -9,27 +9,45 @@ export default function Portfolio() {
       <ul className="portfolio__list">
         <li className="portfolio__element">
           <p className="portfolio__text">Статичный сайт</p>
-          <img
-            className="portfolio__img"
-            src={arrowLanding}
-            alt="ссылка на сайт"
-          ></img>
+          <a
+            href="https://olgakurkina.github.io/how-to-learn/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              className="portfolio__img"
+              src={arrowLanding}
+              alt="ссылка на сайт"
+            ></img>
+          </a>
         </li>
         <li className="portfolio__element">
           <p className="portfolio__text">Адаптивный сайт</p>
-          <img
-            className="portfolio__img"
-            src={arrowLanding}
-            alt="ссылка на сайт"
-          ></img>
+          <a
+            href="https://olgakurkina.github.io/russian-travel/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              className="portfolio__img"
+              src={arrowLanding}
+              alt="ссылка на сайт"
+            ></img>
+          </a>
         </li>
         <li className="portfolio__element">
           <p className="portfolio__text">Одностраничное приложение</p>
-          <img
-            className="portfolio__img"
-            src={arrowLanding}
-            alt="ссылка на сайт"
-          ></img>
+          <a
+            href="http://doktorovao.nomoreparties.sbs"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              className="portfolio__img"
+              src={arrowLanding}
+              alt="ссылка на сайт"
+            ></img>
+          </a>
         </li>
       </ul>
     </section>

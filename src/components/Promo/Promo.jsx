@@ -19,7 +19,11 @@ export default function Promo() {
             </a>
           </button>
         </div>
-        <img className="promo__image" src={landingLogo} alt="Картинка" />
+        <img
+          className="promo__image"
+          src={landingLogo}
+          alt="Картинка земного шара"
+        />
       </div>
     </section>
   );

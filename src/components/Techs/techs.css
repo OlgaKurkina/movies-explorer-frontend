@@ -32,7 +32,7 @@
   display: flex;
   margin: 0 auto;
   padding: 0;
-  column-gap: 4px;
+  column-gap: 9px;
 }
 
 .techs__element {
@@ -41,7 +41,6 @@
   background-color: rgb(232, 232, 232, 1);
   border-radius: 10px;
   text-align: center;
-
   font-size: 14px;
   padding-top: 22px;
 }
@@ -53,6 +52,10 @@
 
   .techs__title {
     padding-top: 82px;
+  }
+
+  .techs__list {
+    column-gap: 4px;
   }
 
   .techs__description {
@@ -78,14 +81,27 @@
 
   .techs__list {
     flex-wrap: wrap;
-    column-gap: 12px;
-    row-gap: 15px;
-    padding: 0 15px 0 52px;
+    column-gap: 6px;
+    row-gap: 8px;
+    justify-content: center;
+    padding: 0 30px;
   }
 
   .techs__element {
     width: 84px;
     margin: 0;
     padding-top: 15px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .techs__list {
+    justify-content: flex-start;
+    padding: 0 55px;
+  }
+
+  .techs__element {
+    font-size: 12px;
+    padding-top: 20px;
   }
 }

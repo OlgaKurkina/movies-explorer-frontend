@@ -41,7 +41,12 @@
   width: 18px;
   height: 18px;
   align-self: center;
-  padding: 0 5px 14px 0;
+  padding: 18px 5px 14px 0;
+  cursor: pointer;
+}
+
+.portfolio__img:hover {
+  opacity: 0.7;
 }
 
 @media screen and (max-width: 1279px) {
@@ -57,16 +62,17 @@
   .portfolio__text {
     font-size: 18px;
     line-height: 28px;
+    padding: 0;
   }
 
   .portfolio__element {
-    padding-top: 16px;
+    padding-top: 19px;
   }
 
   .portfolio__img {
     width: 11px;
     height: 11px;
     align-self: center;
-    padding: 2px 0px 40px 0;
+    padding: 6px 0px 24px 0;
   }
 }

@@ -10,12 +10,8 @@ function MovieCard(movie) {
   return (
     <li className="movie">
       <div className="movie__content">
-        <img
-          className="movie__image"
-          src={Movie}
-          alt="фильм 33 слова о дизайне"
-        />
-        <h3 className="movie__name">33 слова о дизайне</h3>
+        <img className="movie__image" src={Movie} alt={Movie.nameRU} />
+        <h2 className="movie__name">33 слова о дизайне</h2>
         <p className="movie__duration">1ч 47м</p>
         <div className="movie__like-container">
           <button className="movie__like-btn" type="button"></button>

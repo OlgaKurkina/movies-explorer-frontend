@@ -1,6 +1,6 @@
 .label-checkbox {
   display: flex;
-  grid-column: 4/6;
+  grid-column: -39/-2;
   align-items: center;
   cursor: pointer;
   margin: 30px auto;
@@ -55,4 +55,15 @@
 .checkbox__name {
   font-size: 12px;
   line-height: 18px;
+}
+
+@media screen and (max-width: 767px) {
+  .checkbox {
+    margin-right: 0;
+  }
+
+  .label-checkbox {
+    display: flex;
+    grid-column: -7/-2;
+  }
 }

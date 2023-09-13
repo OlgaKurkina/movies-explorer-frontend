@@ -1,7 +1,7 @@
 .movie {
   border: none;
   border-radius: 6px;
-  margin-bottom: 37px;
+  margin: 0 0 37px 0;
 }
 
 .movie__content {
@@ -26,7 +26,7 @@
   overflow: hidden;
   margin: 0;
   font-weight: 400;
-  padding-top: 16px;
+  padding: 16px 0 17px 20px;
   grid-row: 3/4;
   grid-column: 1/4;
 }
@@ -37,6 +37,8 @@
   color: rgb(160, 160, 160, 1);
   grid-row: 4/5;
   grid-column: 1/4;
+  margin: 0;
+  padding: 0 0 15px 23px;
 }
 
 .movie__like-container {
@@ -47,7 +49,7 @@
 .movie__like-btn {
   width: 30px;
   height: 30px;
-  background: url(../../images/like.png);
+  background: url(../../images/like.svg);
   border: none;
   object-fit: contain;
   background-repeat: no-repeat;
@@ -63,17 +65,36 @@
 
 .movie__like-btn_active {
   opacity: 100%;
-  background: url(../../images/like-active.png);
+  background: url(../../images/like-active.svg);
 }
 
 @media screen and (max-width: 1279px) {
   .movie__image {
     height: 190px;
   }
+
+  .movie {
+    margin: 0 0 24px 0;
+  }
 }
 
 @media screen and (max-width: 767px) {
   .movie__image {
     height: 168px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .movie__name {
+    width: 250px;
+    padding: 16px 0 11px 13px;
+  }
+
+  .movie__duration {
+    padding: 0 0 15px 13px;
+  }
+
+  .movie {
+    margin: 0 0 14px 0;
   }
 }

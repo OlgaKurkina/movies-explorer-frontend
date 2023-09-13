@@ -5,8 +5,8 @@ export default function Techs() {
   return (
     <section className="techs">
       <a name="techs"></a>
-      <h3 className="section__title">Технологии</h3>
-      <h2 className="techs__title">7 технологий</h2>
+      <h2 className="section__title">Технологии</h2>
+      <h3 className="techs__title">7 технологий</h3>
       <p className="techs__description">
         На курсе веб-разработки мы освоили технологии, которые применили в
         дипломном проекте.

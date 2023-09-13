@@ -14,8 +14,8 @@ export default function MovieCardList() {
         <MovieCard />
         <MovieCard />
       </ul>
-      <div className="movie__add-container">
-        <button className="movie__add-btn" type="button">
+      <div className="movies__add-container">
+        <button className="movies__add-btn" type="submit">
           Еще
         </button>
       </div>

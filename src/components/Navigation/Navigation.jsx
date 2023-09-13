@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./navigation.css";
-import Account from "../../images/account.png";
+import Account from "../../images/account.svg";
 import usePopupClose from "../../hooks/usePopupClose";
 
 export default function Navigation({ isLoggedIn, isOpen, handlePopup }) {
@@ -53,7 +53,7 @@ export default function Navigation({ isLoggedIn, isOpen, handlePopup }) {
           type="button"
           onClick={handlePopup}
         ></button>
-        <nav className="menu__movies">
+        <nav className="menu">
           <NavLink to="/" className="menu__link">
             Главная
           </NavLink>
@@ -63,12 +63,12 @@ export default function Navigation({ isLoggedIn, isOpen, handlePopup }) {
           <NavLink to="/saved-movies" className="menu__link">
             Сохраненные фильмы
           </NavLink>
-          <div className="profile__menu">
+          <div className="menu__profile">
             <Link to="/profile" className="navigation__profile-link">
               Аккаунт
             </Link>
             <img
-              className="profile__icon"
+              className="menu__profile-icon"
               src={Account}
               alt="Профиль пользователя"
             />
