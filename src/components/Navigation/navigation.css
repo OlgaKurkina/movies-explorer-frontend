@@ -28,14 +28,14 @@
   transition: ease-in;
 }
 
-.navigation__movies {
+.navigation-movies {
   display: flex;
   padding-left: 44px;
   gap: 16px;
   align-items: center;
 }
 
-.navigation__movies-link {
+.navigation-movies__link {
   font-size: 13px;
   line-height: 18px;
   text-decoration: none;
@@ -43,43 +43,46 @@
   cursor: pointer;
 }
 
-.navigation__movies-link:hover {
+.navigation-movies__link:hover {
   opacity: 0.7;
   transition: ease-in;
 }
 
-.navigation__movies-link:active {
+.navigation-movies__link:active {
   font-weight: 600;
 }
 
-.navigation__profile {
+.profile-btn {
   background-color: rgb(255, 255, 255, 1);
   width: 100px;
   display: flex;
   align-items: center;
-  margin-left: auto;
-  gap: 17px;
+  gap: 11px;
   height: 32px;
   border-radius: 20px;
-  margin-top: 20px;
-  margin-right: 22px;
   box-shadow: 1px 5px 10px rgb(244, 244, 244, 1);
   cursor: pointer;
 }
 
-.navigation__profile:hover {
+.profile-btn_place_header {
+  margin-left: auto;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.profile-btn:hover {
   opacity: 0.7;
   transition: ease-in;
 }
 
-.navigation__profile-link {
+.profile-btn__link {
   text-decoration: none;
   font-size: 13px;
   color: black;
   padding: 10px 0 10px 10px;
 }
 
-.navigation__profile-link:hover {
+.profile-btn__link:hover {
   opacity: 70%;
   transition: ease-in;
 }
@@ -139,7 +142,7 @@
   transition: ease-in;
 }
 
-.menu {
+.popup__menu {
   background-color: rgba(250, 250, 250, 1);
   width: 520px;
   height: 100vh;
@@ -153,7 +156,7 @@
   gap: 28px;
 }
 
-.menu__link {
+.popup__menu-link {
   text-decoration: none;
   font-size: 18px;
   color: black;
@@ -162,20 +165,16 @@
   text-align: center;
 }
 
-.menu__link:hover {
+.popup__menu-link:hover {
   border-bottom: 1px solid rgb(0, 0, 0);
 }
 
-.menu__profile {
-  display: flex;
-  align-items: center;
+.profile-btn_place_popup {
   margin-top: 594px;
   margin-bottom: 70px;
-  gap: 8px;
-  background-color: rgb(244, 244, 244, 1);
 }
 
-.menu__profile-icon {
+.popup__profile-icon {
   width: 11px;
   height: 11px;
   border-radius: 50px;
@@ -207,11 +206,11 @@
     opacity: 1;
     width: 40px;
     height: 43px;
-    margin: 15px 33px 0 0;
+    margin: 15px 14px 0 0;
     justify-self: end;
   }
 
-  .navigation__movies {
+  .navigation-movies {
     visibility: hidden;
     opacity: 0;
     width: 1px;
@@ -219,7 +218,7 @@
     overflow: hidden;
   }
 
-  .navigation__profile {
+  .profile-btn_place_header {
     visibility: hidden;
     opacity: 0;
     width: 1px;
@@ -229,8 +228,9 @@
 }
 
 @media screen and (max-width: 600px) {
-  .menu {
+  .popup__menu {
     width: 100%;
+    padding-top: 145px;
   }
 
   .burger-menu {
@@ -242,11 +242,7 @@
     right: 18px;
   }
 
-  .menu {
-    padding-top: 145px;
-  }
-
-  .menu__profile {
+  .profile-btn_place_popup {
     margin-top: 410px;
   }
 }

@@ -22,11 +22,16 @@
   font-size: 11px;
   border-bottom: 1px solid rgb(232, 232, 232, 1);
   flex-direction: row;
-  font-size: 11px;
+  color: black;
+  align-items: center;
 }
 
 .label_place_profile:first-child {
   border-bottom: 1px solid rgb(232, 232, 232, 1);
+}
+
+.label_place_profile:focus {
+  outline: 1px solid rgb(232, 232, 232, 1);
 }
 
 .profile__input {
@@ -40,10 +45,6 @@
   width: 100%;
 }
 
-.label_place_profile:active {
-  outline: 1px solid rgb(232, 232, 232, 1);
-}
-
 .profile__button {
   border: none;
   font-size: 13px;
@@ -52,6 +53,7 @@
   text-align: center;
   background-color: rgb(255, 255, 255, 1);
   padding-top: 190px;
+  cursor: pointer;
 }
 
 .profile__button:hover {
@@ -63,23 +65,23 @@
   font-weight: 600;
 }
 
-.profile__signout {
+.profile-signout {
   padding: 16px 435px 30px 435px;
   display: flex;
   justify-content: center;
 }
 
-.profile__link {
+.profile-link {
   color: rgb(238, 52, 101, 1);
   font-size: 13px;
 }
 
-.profile__link:hover {
+.profile-link:hover {
   opacity: 0.7;
   transition: ease-in;
 }
 
-.profile__link:active {
+.profile-link:active {
   font-weight: 600;
 }
 
@@ -114,7 +116,7 @@
     padding-top: 181px;
   }
 
-  .profile__signout {
+  .profile-signout {
     padding: 16px 0 30px 0;
   }
 }
@@ -141,7 +143,7 @@
     font-size: 12px;
   }
 
-  .profile__signout {
+  .profile-signout {
     font-size: 12px;
   }
 }

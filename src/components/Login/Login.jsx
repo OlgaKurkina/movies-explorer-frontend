@@ -8,14 +8,14 @@ function Login() {
     <>
       <main className="content">
         <section className="login">
-          <Link to="/" className="logo__link">
+          <Link to="/" className="link link_place_login">
             <img className="logo logo_place_login" src={Logo} alt="Логотип" />
           </Link>
           <h1 className="wellcome">Рады видеть!</h1>
         </section>
-        <form className="login__form">
+        <form className="login-form">
           <label className="label label_place_login">
-            Email
+            E-mail
             <input
               className="input"
               type="email"
@@ -43,7 +43,7 @@ function Login() {
           </label>
 
           <button
-            className="form__button form__button_place_login"
+            className="login-form__button login-form__button_place_login"
             type="submit"
             name="login__button"
             id="login__button"

@@ -8,7 +8,7 @@ function Register() {
     <>
       <main className="content">
         <section className="register">
-          <Link to="/" className="logo__link">
+          <Link to="/" className="link link_place_register">
             <img
               className="logo logo_place_register"
               src={Logo}
@@ -17,7 +17,7 @@ function Register() {
           </Link>
           <h1 className="wellcome">Добро пожаловать!</h1>
         </section>
-        <form className="register__form">
+        <form className="register-form">
           <label className="label label_place_register">
             Имя
             <input
@@ -32,7 +32,7 @@ function Register() {
             />
           </label>
           <label className="label label_place_register">
-            Email
+            E-mail
             <input
               className="input"
               type="email"
@@ -58,7 +58,7 @@ function Register() {
             />
           </label>
           <button
-            className="form__button form__button_place_register"
+            className="register-form__button register-form__button_place_register"
             type="submit"
             name="register__button"
             id="register__button"

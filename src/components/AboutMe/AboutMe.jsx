@@ -1,13 +1,13 @@
 import React from "react";
 import Portfolio from "../Portfolio/Portfolio";
-import photo from "../../images/photo.png";
+import photo from "../../images/photo.jpg";
 import "./aboutMe.css";
 
 export default function AboutMe() {
   return (
-    <section className="aboutme__section">
-      <a name="student"></a>
-      <h2 className="section__title">Студент</h2>
+    <section className="aboutme">
+      <a id="student"></a>
+      <h2 className="section-title">Студент</h2>
       <div className="aboutme__container">
         <h3 className="aboutme__name">Ольга</h3>
         <p className="aboutme__description">Фронтенд разработчик, 37 лет</p>

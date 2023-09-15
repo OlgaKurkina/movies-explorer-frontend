@@ -17,8 +17,9 @@
   cursor: pointer;
 }
 
-.search-form__input:active {
-  outline: rgb(244, 244, 244, 1);
+.search-form__input:focus {
+  outline: rgb(232, 232, 232, 1);
+  background-color: rgb(232, 232, 232, 1);
 }
 
 .search-form__button {

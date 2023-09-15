@@ -22,20 +22,20 @@ export default function Navigation({ isLoggedIn, isOpen, handlePopup }) {
         </nav>
       ) : (
         <>
-          <nav className="navigation__movies">
-            <NavLink to="/movies" className="navigation__movies-link">
+          <nav className="navigation-movies">
+            <NavLink to="/movies" className="navigation-movies__link">
               Фильмы
             </NavLink>
-            <NavLink to="/saved-movies" className="navigation__movies-link">
+            <NavLink to="/saved-movies" className="navigation-movies__link">
               Сохраненные фильмы
             </NavLink>
           </nav>
-          <div className="navigation__profile">
-            <Link to="/profile" className="navigation__profile-link">
+          <div className="profile-btn profile-btn_place_header">
+            <Link to="/profile" className="profile-btn__link">
               Аккаунт
             </Link>
             <img
-              className="profile__icon"
+              className="profile-icon profile-btn__icon"
               src={Account}
               alt="Профиль пользователя"
             />
@@ -53,22 +53,22 @@ export default function Navigation({ isLoggedIn, isOpen, handlePopup }) {
           type="button"
           onClick={handlePopup}
         ></button>
-        <nav className="menu">
-          <NavLink to="/" className="menu__link">
+        <nav className="popup__menu">
+          <NavLink to="/" className="popup__menu-link">
             Главная
           </NavLink>
-          <NavLink to="/movies" className="menu__link">
+          <NavLink to="/movies" className="popup__menu-link">
             Фильмы
           </NavLink>
-          <NavLink to="/saved-movies" className="menu__link">
+          <NavLink to="/saved-movies" className="popup__menu-link">
             Сохраненные фильмы
           </NavLink>
-          <div className="menu__profile">
-            <Link to="/profile" className="navigation__profile-link">
+          <div className="profile-btn profile-btn_place_popup">
+            <Link to="/profile" className="profile-btn__link">
               Аккаунт
             </Link>
             <img
-              className="menu__profile-icon"
+              className="profile-btn__icon"
               src={Account}
               alt="Профиль пользователя"
             />

@@ -4,7 +4,7 @@ import FilterCheckbox from "../FilterCheckBox/FilterCheckBox";
 
 export default function SearchForm({ onCheckbox, shortMovieCheckbox }) {
   return (
-    <section className="search-form__section">
+    <section className="search-section">
       <form className="search-form">
         <input
           className="search-form__input"

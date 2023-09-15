@@ -14,21 +14,25 @@
   margin: 0;
 }
 
-.login__form {
+.login-form {
   display: flex;
   flex-direction: column;
   padding: 42px 442px 5px 442px;
 }
 
 .label {
-  font-size: 10px;
   font-weight: 400;
-  color: rgb(160, 160, 160, 1);
   display: flex;
 }
 
 .label_place_login {
   flex-direction: column;
+  color: rgb(160, 160, 160, 1);
+  font-size: 10px;
+}
+
+.input:focus {
+  outline: 1px solid rgb(232, 232, 232, 1);
 }
 
 .input {
@@ -41,11 +45,7 @@
   margin-bottom: 25px;
 }
 
-.input:active {
-  outline: 1px solid rgb(232, 232, 232, 1);
-}
-
-.form__button {
+.login-form__button {
   background-color: rgb(52, 86, 243, 1);
   color: rgb(255, 255, 255, 1);
   font-size: 14px;
@@ -58,11 +58,11 @@
   margin-top: 131px;
 }
 
-.form__button_place_login {
+.login-form__button_place_login {
   margin-top: 198px;
 }
 
-.form__button:hover {
+.login-form__button:hover {
   opacity: 70%;
   transition: ease-in;
 }
@@ -99,13 +99,13 @@
     margin: 144px 0 0 0;
   }
 
-  .login__form {
+  .login-form {
     padding: 42px 0 5px 0;
     max-width: 396px;
     margin: 0 auto;
   }
 
-  .form__button_place_login {
+  .login-form__button_place_login {
     margin-top: 200px;
   }
 }
@@ -122,20 +122,24 @@
 
   .logo_place_login {
     margin: 0 auto;
-    padding-top: 58px;
   }
 
-  .login__form {
+  .login-form {
     padding: 82px 0 0 0;
     max-width: 260px;
     margin: 0 auto;
   }
 
-  .form__button_place_login {
+  .login-form__button_place_login {
     margin-top: 288px;
   }
 
   .redirect__text {
     font-size: 12px;
+  }
+
+  .link_place_login {
+    margin: 0 auto;
+    padding: 56px 0 0 0;
   }
 }

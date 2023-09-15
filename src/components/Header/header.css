@@ -17,6 +17,9 @@
   margin: 0;
   width: 38px;
   height: 38px;
+}
+
+.link_place_header {
   margin: 18px 0px 0px 73px;
 }
 
@@ -60,13 +63,13 @@
 }
 
 @media screen and (max-width: 1279px) {
-  .link {
+  .link_place_header {
     margin: 18px 0 0 30px;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .link {
+  .link_place_header {
     margin: 18px 0px 0px 14px;
   }
   .promo {

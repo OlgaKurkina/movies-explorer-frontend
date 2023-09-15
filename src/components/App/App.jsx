@@ -34,7 +34,7 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <main className="main">
+      <div className="main">
         {headerRoutes.includes(route) && (
           <Header
             isLoggedIn={isLoggedIn}
@@ -52,7 +52,7 @@ function App() {
           <Route path="*" element={<NotFound onGoBack={onBackPage} />} />
         </Routes>
         {footerRoutes.includes(route) && <Footer />}
-      </main>
+      </div>
     </CurrentUserContext.Provider>
   );
 }

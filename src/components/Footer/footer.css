@@ -50,12 +50,12 @@
 
 @media screen and (max-width: 1279px) {
   .footer {
-    padding: 99px 30px 18px 30px;
+    padding: 85px 30px 18px 30px;
   }
 }
 @media screen and (max-width: 767px) {
   .footer {
-    padding: 99px 10px 0 10px;
+    padding: 86px 10px 0 10px;
   }
   .footer__subtitle {
     font-size: 12px;

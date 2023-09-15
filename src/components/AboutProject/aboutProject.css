@@ -3,7 +3,7 @@
   padding: 110px 70px 110px 70px;
 }
 
-.section__title {
+.section-title {
   padding-bottom: 23px;
   margin: 0;
   font-size: 22px;
@@ -42,7 +42,8 @@
   grid-template-columns: repeat(auto-fit, 228px);
   margin: 0;
   padding: 0;
-  max-width: 1140px;
+
+  width: 100%;
 }
 
 .about-project__element {
@@ -80,10 +81,6 @@
 @media screen and (max-width: 1279px) {
   .about-project {
     padding: 92px 50px 90px 50px;
-  }
-
-  .about-project__timeline {
-    grid-template-columns: repeat(auto-fit, 140px);
   }
 
   .about-project__info {
@@ -128,6 +125,7 @@
   .about-project__timeline {
     padding-top: 57px;
     grid-template-columns: repeat(auto-fit, 100px);
+    justify-content: center;
   }
 
   .about-project__list-title {
@@ -137,5 +135,11 @@
   .about-project__list {
     font-size: 11px;
     padding: 12px 0 0 0;
+  }
+}
+
+@media screen and (max-width: 535px) {
+  .about-project__timeline {
+    justify-content: stretch;
   }
 }

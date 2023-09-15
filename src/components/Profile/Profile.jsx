@@ -23,7 +23,7 @@ function Profile() {
               />
             </label>
             <label className="label label_place_profile">
-              E-mail
+              Email
               <input
                 className="profile__input"
                 type="text"
@@ -40,8 +40,8 @@ function Profile() {
             </button>
           </form>
         </section>
-        <div className="profile__signout">
-          <Link to="/" className="profile__link">
+        <div className="profile-signout">
+          <Link to="/" className="profile-link">
             Выйти из аккаунта
           </Link>
         </div>

@@ -4,7 +4,7 @@ import "./portfolio.css";
 
 export default function Portfolio() {
   return (
-    <section className="portfolio__container">
+    <section className="portfolio">
       <h4 className="portfolio__title">Портфолио</h4>
       <ul className="portfolio__list">
         <li className="portfolio__element">
@@ -38,7 +38,7 @@ export default function Portfolio() {
         <li className="portfolio__element">
           <p className="portfolio__text">Одностраничное приложение</p>
           <a
-            href="http://doktorovao.nomoreparties.sbs"
+            href="https://olgakurkina.github.io/react-mesto-auth/"
             target="_blank"
             rel="noreferrer"
           >

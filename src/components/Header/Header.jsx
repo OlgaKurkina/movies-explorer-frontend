@@ -9,7 +9,7 @@ export default function Header({ isLoggedIn, isOpen, handlePopup }) {
 
   return match ? (
     <header className="header header_theme_dark">
-      <Link to="/" className="link">
+      <Link to="/" className="link link_place_header">
         <img className="logo" src={Logo} alt="Логотип" />
       </Link>
       <Navigation
@@ -20,7 +20,7 @@ export default function Header({ isLoggedIn, isOpen, handlePopup }) {
     </header>
   ) : (
     <header className="header header_theme_light">
-      <Link to="/" className="link">
+      <Link to="/" className="link link_place_header">
         <img className="logo" src={Logo} alt="Логотип" />
       </Link>
       <Navigation

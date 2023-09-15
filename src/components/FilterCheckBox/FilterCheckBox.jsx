@@ -3,9 +3,9 @@ import "./filterCheckbox.css";
 
 const FilterCheckbox = ({ onCheckbox, shortMovieCheckbox }) => {
   return (
-    <label className="label-checkbox">
+    <label className="checkbox">
       <input
-        className="checkbox"
+        className="checkbox__input"
         type="radio"
         name="short-films"
         onChange={onCheckbox}
