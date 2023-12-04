@@ -1,23 +1,72 @@
-import React from "react";
+import React, { useState, useEffect, useMemo } from "react";
+import { useLocation } from "react-router-dom";
 import MovieCard from "../MovieCard/MovieCard";
-
 import "./movieCardList.css";
 
-export default function MovieCardList() {
+export default function MovieCardList({
+  movies,
+  onLike,
+  onDelete,
+  checkingLike,
+  errorMessage,
+}) {
+  const useResize = () => {
+    const [size, setSize] = useState({ width: 0, height: 0 });
+
+    useEffect(() => {
+      const getSize = () =>
+        setSize({ width: window.innerWidth, height: window.innerHeight });
+
+      getSize();
+
+      window.addEventListener("resize", getSize);
+      return () => window.removeEventListener("resize", getSize);
+    }, []);
+
+    return size;
+  };
+
+  let size = useResize();
+  const [moviesToAdd, setMoviesToAdd] = useState(0);
+  const location = useLocation();
+
+  useEffect(() => {
+    setMoviesToAdd(0);
+  }, [movies]);
+
+  const moviesToShow = useMemo(() => {
+    const countToShow = size.width < 768 ? 5 : size.width < 1280 ? 9 : 12;
+
+    return movies.slice(0, countToShow + moviesToAdd);
+  }, [movies, moviesToAdd, size]);
+
   return (
     <section className="movies">
+      <span className="movies__error-message">{errorMessage}</span>
       <ul className="movies__list">
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
+        {moviesToShow.map((movie) => (
+          <MovieCard
+            key={movie.movieId}
+            movie={movie}
+            onLike={onLike}
+            onDelete={onDelete}
+            checkingLike={checkingLike}
+          />
+        ))}
       </ul>
       <div className="movies__add-container">
-        <button className="movies__add-btn" type="submit">
-          Еще
-        </button>
+        {location.pathname === "/movies" &&
+          movies.length > moviesToShow.length && (
+            <button
+              onClick={() => {
+                setMoviesToAdd((data) => data + (size.width >= 768 ? 3 : 2));
+              }}
+              className="movies__add-btn"
+              type="submit"
+            >
+              Еще
+            </button>
+          )}
       </div>
     </section>
   );

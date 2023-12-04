@@ -31,6 +31,10 @@
   transition: ease-in;
 }
 
+.register-form__button_disabled {
+  background-color: rgb(221, 222, 227, 1);
+}
+
 .label_place_register {
   flex-direction: column;
   color: rgb(160, 160, 160, 1);
@@ -40,6 +44,17 @@
 .redirect__text {
   margin: 0;
   font-size: 14px;
+}
+
+.error {
+  font-size: 10px;
+  color: rgb(238, 52, 101);
+
+  padding: 0;
+}
+
+.error_place_register {
+  margin: 0 0 10px 0;
 }
 
 @media screen and (max-width: 1279px) {
@@ -64,10 +79,10 @@
   }
 
   .input {
-    margin-bottom: 24px;
+    margin-bottom: 15px;
   }
 
-  .form__button_place_register {
+  .register-form__button_place_register {
     margin-top: 134px;
   }
 

@@ -2,13 +2,13 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./navigation.css";
 import Account from "../../images/account.svg";
-import usePopupClose from "../../hooks/usePopupClose";
+import usePopupClose from "../hooks/usePopupClose";
 
 export default function Navigation({ isLoggedIn, isOpen, handlePopup }) {
   usePopupClose(isOpen, handlePopup);
   return (
     <>
-      {isLoggedIn ? (
+      {!isLoggedIn ? (
         <nav className="navigation">
           <Link to="/signup" className="navigation__link">
             Регистрация

@@ -1,9 +1,22 @@
 import React from "react";
 import Logo from "../../images/header-logo.svg";
 import { Link } from "react-router-dom";
+import useForm from "../hooks/useForm";
+
 import "./register.css";
 
-function Register() {
+const Register = ({ onRegister, onLoading }) => {
+  const { formValue, error, handleChange, isCorrect } = useForm();
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    onRegister({
+      name: formValue.name,
+      email: formValue.email,
+      password: formValue.password,
+    });
+  };
+
   return (
     <>
       <main className="content">
@@ -17,53 +30,69 @@ function Register() {
           </Link>
           <h1 className="wellcome">Добро пожаловать!</h1>
         </section>
-        <form className="register-form">
+        <form className="register-form" onSubmit={handleSubmit}>
           <label className="label label_place_register">
             Имя
             <input
               className="input"
               type="text"
-              name="register-name"
+              name="name"
               id="register-name"
               required
               minLength={2}
               maxLength={20}
               placeholder="Имя"
+              value={formValue.name || ""}
+              onChange={handleChange}
             />
           </label>
+          <span className="error error_place_register">{error.name || ""}</span>
           <label className="label label_place_register">
             E-mail
             <input
               className="input"
               type="email"
-              name="register-email"
+              name="email"
               id="register-email"
               required
               minLength={2}
               maxLength={20}
               placeholder="Email"
+              value={formValue.email || ""}
+              onChange={handleChange}
             />
           </label>
+          <span className="error error_place_register">
+            {error.email || ""}
+          </span>
           <label className="label label_place_register">
             Пароль
             <input
               className="input"
               type="password"
-              name="register-password"
+              name="password"
               id="register-password"
               required
               minLength={4}
               maxLength={20}
               placeholder="Пароль"
+              value={formValue.password || ""}
+              onChange={handleChange}
             />
           </label>
+          <span className="error error_place_register">
+            {error.password || ""}
+          </span>
           <button
-            className="register-form__button register-form__button_place_register"
+            className={`register-form__button register-form__button_place_register ${
+              isCorrect ? "" : "register-form__button_disabled"
+            }`}
             type="submit"
             name="register__button"
             id="register__button"
+            onSubmit={handleSubmit}
           >
-            Зарегистрироваться
+            {onLoading ? "Сохранение..." : "Зарегистрироваться"}
           </button>
         </form>
         <div className="redirect">
@@ -77,6 +106,6 @@ function Register() {
       </main>
     </>
   );
-}
+};
 
 export default Register;

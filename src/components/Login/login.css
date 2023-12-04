@@ -40,7 +40,7 @@
   font-size: 14px;
   color: black;
   line-height: 1.1;
-  padding-bottom: 13px;
+  padding: 0 0 5px 0;
   border-bottom: 1px solid rgb(232, 232, 232, 1);
   margin-bottom: 25px;
 }
@@ -82,6 +82,10 @@
 .redirect__link:hover {
   opacity: 0.7;
   transition: ease-in;
+}
+
+.error_place_login {
+  margin: 0 0 10px 0;
 }
 
 @media screen and (max-width: 1279px) {

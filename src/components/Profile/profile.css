@@ -30,6 +30,14 @@
   border-bottom: 1px solid rgb(232, 232, 232, 1);
 }
 
+.error_place_profile {
+  margin-top: 10px;
+}
+
+.error_place_profile:last-of-type {
+  margin-bottom: 190px;
+}
+
 .label_place_profile:focus {
   outline: 1px solid rgb(232, 232, 232, 1);
 }
@@ -52,7 +60,7 @@
   color: black;
   text-align: center;
   background-color: rgb(255, 255, 255, 1);
-  padding-top: 190px;
+  padding-top: 10px;
   cursor: pointer;
 }
 
@@ -63,6 +71,38 @@
 
 .profile__button:active {
   font-weight: 600;
+}
+
+.profile__button_hidden {
+  opacity: 0;
+}
+
+.profile__submit-btn {
+  background-color: rgb(52, 86, 243, 1);
+  color: rgb(255, 255, 255, 1);
+  font-size: 14px;
+  border: none;
+  border-radius: 3px;
+  line-height: 1.1;
+  padding: 14px 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.profile__submit-btn_disabled {
+  background-color: rgb(160, 160, 160, 1);
+}
+
+.profile__submit-btn_hidden {
+  opacity: 0;
+}
+
+.profile-error {
+  font-size: 10px;
+  color: rgb(238, 52, 101);
+  margin: 180px 0 0 0;
+  padding: 0;
+  text-align: center;
 }
 
 .profile-signout {
@@ -110,10 +150,6 @@
   .label_place_profile {
     padding-top: 0;
     margin-bottom: 17px;
-  }
-
-  .profile__button {
-    padding-top: 181px;
   }
 
   .profile-signout {
