@@ -1,0 +1,18 @@
+.promo__nav {
+  background-color: rgb(221, 222, 227, 1);
+  height: 44px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 24px;
+}
+
+.promo__link {
+  color: black;
+  padding-left: 40px;
+}
+
+.promo__link:hover {
+  opacity: 70%;
+  transition: ease-in;
+}

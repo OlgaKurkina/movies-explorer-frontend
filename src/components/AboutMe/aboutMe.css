@@ -1,0 +1,126 @@
+.aboutme {
+  background-color: rgb(250, 250, 250, 1);
+  padding: 111px 70px 100px 70px;
+}
+
+.aboutme__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min-content, max-content));
+  padding: 66px 0 100px 0;
+}
+
+.aboutme__name {
+  font-size: 50px;
+  line-height: 1.15;
+  grid-row: 1/2;
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+.aboutme__photo {
+  margin-left: 271px;
+  width: 270px;
+  height: 327px;
+  object-fit: cover;
+  border-radius: 10px;
+  overflow: hidden;
+  grid-column: 3/4;
+  grid-row: 1/5;
+}
+
+.aboutme__description {
+  grid-row: 2/3;
+  margin: 0;
+  padding-bottom: 21px;
+  font-size: 18px;
+}
+
+.aboutme__text {
+  grid-row: 3/4;
+  font-size: 14px;
+  line-height: 22px;
+  padding-bottom: 105px;
+  margin: 0;
+}
+
+.aboutme__link {
+  grid-row: 4/5;
+  margin: 0;
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 1279px) {
+  .aboutme {
+    padding: 91px 50px 63px 50px;
+  }
+
+  .aboutme__name {
+    font-size: 40px;
+    line-height: 1;
+    padding-bottom: 16px;
+  }
+
+  .aboutme__description {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .aboutme__photo {
+    margin-left: 0;
+    width: 255px;
+    height: 307px;
+  }
+  .aboutme__text {
+    padding-bottom: 85px;
+  }
+
+  .aboutme__container {
+    padding: 66px 0 91px 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .aboutme {
+    padding: 92px 14px 35px 14px;
+  }
+
+  .aboutme__name {
+    font-size: 30px;
+    line-height: 1.15;
+    grid-row: 2/3;
+    padding-bottom: 22px;
+  }
+
+  .aboutme__photo {
+    width: 292px;
+    height: 352px;
+    object-fit: cover;
+    border-radius: 10px;
+    overflow: hidden;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    padding-bottom: 39px;
+  }
+
+  .aboutme__description {
+    grid-row: 3/4;
+    font-size: 11px;
+  }
+
+  .aboutme__text {
+    grid-row: 4/5;
+    font-size: 11px;
+    line-height: 16px;
+    padding-bottom: 56px;
+  }
+
+  .aboutme__link {
+    grid-row: 5/6;
+  }
+
+  .aboutme__container {
+    padding: 61px 0 69px 0;
+  }
+}

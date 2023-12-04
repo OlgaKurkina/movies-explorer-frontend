@@ -1,0 +1,149 @@
+.profile {
+  padding: 74px 435px 0 435px;
+  margin: 0;
+}
+
+.profile__form {
+  display: flex;
+  flex-direction: column;
+  padding: 125px 0 0 0;
+}
+
+.profile__wellcome {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.1;
+  text-align: center;
+  margin: 0;
+}
+
+.label_place_profile {
+  color: black;
+  font-size: 11px;
+  border-bottom: 1px solid rgb(232, 232, 232, 1);
+  flex-direction: row;
+  color: black;
+  align-items: center;
+}
+
+.label_place_profile:first-child {
+  border-bottom: 1px solid rgb(232, 232, 232, 1);
+}
+
+.label_place_profile:focus {
+  outline: 1px solid rgb(232, 232, 232, 1);
+}
+
+.profile__input {
+  border-style: none;
+  font-size: 14px;
+  color: black;
+  line-height: 1.1;
+  padding-bottom: 14px;
+  margin-bottom: 15px;
+  text-align: end;
+  width: 100%;
+}
+
+.profile__button {
+  border: none;
+  font-size: 13px;
+  line-height: 1.1;
+  color: black;
+  text-align: center;
+  background-color: rgb(255, 255, 255, 1);
+  padding-top: 190px;
+  cursor: pointer;
+}
+
+.profile__button:hover {
+  opacity: 0.7;
+  transition: ease-in;
+}
+
+.profile__button:active {
+  font-weight: 600;
+}
+
+.profile-signout {
+  padding: 16px 435px 30px 435px;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-link {
+  color: rgb(238, 52, 101, 1);
+  font-size: 13px;
+}
+
+.profile-link:hover {
+  opacity: 0.7;
+  transition: ease-in;
+}
+
+.profile-link:active {
+  font-weight: 600;
+}
+
+@media screen and (max-width: 1279px) {
+  .profile {
+    padding: 236px 0 0 0;
+  }
+
+  .profile__wellcome {
+    padding-top: 0;
+    margin: 0;
+  }
+
+  .profile__form {
+    max-width: 410px;
+    padding-top: 94px;
+    margin: 0 auto;
+  }
+
+  .profile__input {
+    margin-bottom: 0;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+  }
+
+  .label_place_profile {
+    padding-top: 0;
+    margin-bottom: 17px;
+  }
+
+  .profile__button {
+    padding-top: 181px;
+  }
+
+  .profile-signout {
+    padding: 16px 0 30px 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .profile {
+    padding: 71px 0 0 0;
+    margin: 0 auto;
+  }
+
+  .profile__wellcome {
+    padding-top: 0;
+    margin: 0;
+  }
+
+  .profile__form {
+    max-width: 260px;
+    padding-top: 79px;
+    margin: 0 auto;
+  }
+
+  .profile__button {
+    padding-top: 348px;
+    font-size: 12px;
+  }
+
+  .profile-signout {
+    font-size: 12px;
+  }
+}

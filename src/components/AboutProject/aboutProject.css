@@ -1,0 +1,145 @@
+.about-project {
+  background-color: rgb(255, 255, 255, 1);
+  padding: 110px 70px 110px 70px;
+}
+
+.section-title {
+  padding-bottom: 23px;
+  margin: 0;
+  font-size: 22px;
+  font-weight: 400;
+  border-bottom: 1px solid rgb(0, 0, 0, 1);
+  letter-spacing: -1.04px;
+}
+
+.about-project__content {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  column-gap: 50px;
+}
+
+.about-project__info {
+  font-size: 20px;
+  font-weight: 400;
+  padding: 71px 0 26px 0;
+  margin: 0;
+  letter-spacing: -1.04px;
+}
+
+.about-project__description {
+  margin: 0;
+  padding: 0 0 110px 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.about-project__timeline {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 228px);
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+}
+
+.about-project__element {
+  grid-column: 1/2;
+  text-align: center;
+  margin: 0;
+}
+
+.about-project__element:last-of-type {
+  grid-column: 2/6;
+}
+
+.about-project__list-title {
+  font-size: 14px;
+  background-color: rgb(52, 86, 243, 1);
+  padding: 10px 0;
+  margin: 0;
+  color: rgb(255, 255, 255, 1);
+}
+
+.about-project__list-title_theme_light {
+  background-color: rgb(242, 242, 242, 1);
+  color: rgb(0, 0, 0, 1);
+}
+
+.about-project__list {
+  color: rgb(160, 160, 160, 1);
+  font-size: 14px;
+  line-height: 1.1;
+  padding: 15px 0 0 0;
+  margin: 0;
+  text-align: center;
+}
+
+@media screen and (max-width: 1279px) {
+  .about-project {
+    padding: 92px 50px 90px 50px;
+  }
+
+  .about-project__info {
+    padding: 71px 0 23px 0;
+  }
+
+  .about-project__description {
+    padding: 0 0 93px 0;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .about-project__content {
+    column-gap: 38px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .about-project {
+    padding: 72px 18px 90px 18px;
+  }
+  .section__title {
+    font-size: 18px;
+    padding-bottom: 27px;
+  }
+
+  .about-project__content {
+    padding-top: 60px;
+    flex-direction: column;
+    row-gap: 58px;
+  }
+
+  .about-project__info {
+    padding: 0 0 14px 0;
+    font-size: 18px;
+  }
+  .about-project__description {
+    padding: 0;
+    font-size: 11px;
+  }
+
+  .about-project__timeline {
+    padding-top: 57px;
+    grid-template-columns: repeat(auto-fit, 100px);
+    justify-content: center;
+  }
+
+  .about-project__list-title {
+    font-size: 11px;
+  }
+
+  .about-project__list {
+    font-size: 11px;
+    padding: 12px 0 0 0;
+  }
+}
+
+@media screen and (max-width: 535px) {
+  .about-project__timeline {
+    justify-content: stretch;
+  }
+}
