@@ -2,7 +2,22 @@ import React from "react";
 import "./searchForm.css";
 import FilterCheckbox from "../FilterCheckBox/FilterCheckBox";
 
-export default function SearchForm({ onCheckbox, shortMovieCheckbox }) {
+export default function SearchForm({
+  searchForm,
+  setSearchForm,
+  onCheckbox,
+  shortMovieCheckbox,
+  searchMovies,
+}) {
+  const handleSearch = (evt) => {
+    evt.preventDefault();
+    searchMovies();
+  };
+
+  const handleChange = (evt) => {
+    setSearchForm(evt.target.value);
+  };
+
   return (
     <section className="search-section">
       <form className="search-form">
@@ -15,6 +30,8 @@ export default function SearchForm({ onCheckbox, shortMovieCheckbox }) {
           required
           minLength={2}
           maxLength={20}
+          value={searchForm}
+          onChange={handleChange}
         ></input>
 
         <button
@@ -22,6 +39,7 @@ export default function SearchForm({ onCheckbox, shortMovieCheckbox }) {
           type="submit"
           name="submit"
           id="submit"
+          onClick={handleSearch}
         >
           Найти
         </button>

@@ -61,7 +61,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: #ff6838;
+  background: rgb(43, 224, 128, 1);
   border-radius: 50px;
 }
 
@@ -83,6 +83,6 @@
 
 .preloader__round::before {
   z-index: 10;
-  background: #ff6838;
+  background: rgb(43, 224, 128, 1);
   animation: preloader-inside-red 1s ease-in-out infinite;
 }

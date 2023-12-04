@@ -1,20 +1,49 @@
 import React from "react";
-import { CurrentUserContext } from "../context/CurrentUserContext";
-import Movie from "../../images/movie.png";
+import { useLocation } from "react-router-dom";
 import "./movieCard.css";
 
-function MovieCard(movie) {
-  const currentUser = React.useContext(CurrentUserContext);
-  //const isOwn = movie.owner._id === currentUser._id;
-  //const isLiked = movie.likes.some((i) => i._id === currentUser._id);
+function MovieCard({ movie, onLike, onDelete, checkingLike }) {
+  const path = useLocation().pathname;
+  const isLiked = checkingLike(movie);
+
+  function duration(movieDuration) {
+    const hours = Math.floor(movieDuration / 60);
+    const minutes = movieDuration % 60;
+    return `${hours}ч${minutes}м`;
+  }
+
+  function handleLike(evt) {
+    evt.preventDefault();
+    isLiked ? onDelete(movie) : onLike(movie);
+  }
+
   return (
     <li className="movie">
       <div className="movie__content">
-        <img className="movie__image" src={Movie} alt={Movie.nameRU} />
-        <h2 className="movie__name">33 слова о дизайне</h2>
-        <p className="movie__duration">1ч 47м</p>
+        <a
+          className="movie__trailer"
+          href={movie.trailerLink}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img className="movie__image" src={movie.image} alt={movie.nameRU} />
+        </a>
+        <h2 className="movie__name">{movie.nameRU}</h2>
+        <p className="movie__duration">{duration(movie.duration)}</p>
         <div className="movie__like-container">
-          <button className="movie__like-btn" type="button"></button>
+          {path === "/movies" ? (
+            <button
+              className={isLiked ? "movie__like-btn_active" : "movie__like-btn"}
+              type="button"
+              onClick={handleLike}
+            ></button>
+          ) : (
+            <button
+              className="movie__delete-btn"
+              type="button"
+              onClick={handleLike}
+            ></button>
+          )}
         </div>
       </div>
     </li>
