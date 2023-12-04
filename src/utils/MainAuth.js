@@ -1,5 +1,5 @@
-export const BASE_URL = "http://localhost:3001";
-//export const BASE_URL = "https://api.doktorovao.nomoreparties.sbs";
+//export const BASE_URL = "http://localhost:3001";
+export const BASE_URL = "https://api.doktorovao.nomoreparties.sbs";
 
 function getResponse(res) {
   if (!res.ok) {
