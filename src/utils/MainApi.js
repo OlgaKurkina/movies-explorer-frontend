@@ -52,7 +52,7 @@ class Api {
   }
 
   addMovie(movie) {
-    console.log(movie.id);
+    // console.log(movie.id);
     return this._getRequest(`${this._basePath}/movies`, {
       method: "POST",
       headers: this._setHeaders(),
@@ -75,7 +75,7 @@ class Api {
 
   //удаление фильма из сохраненных
   deleteMovie(movieId) {
-    console.log(movieId);
+    // console.log(movieId);
     return this._getRequest(`${this._basePath}/movies/${movieId}`, {
       method: "DELETE",
       headers: this._setHeaders(),

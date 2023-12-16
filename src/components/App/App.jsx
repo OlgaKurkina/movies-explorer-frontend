@@ -44,7 +44,6 @@ function App() {
   };
 
   const location = useLocation();
-
   const headerRoutes = ["/", "/profile", "/movies", "/saved-movies"];
   const footerRoutes = ["/", "/movies", "/saved-movies"];
 
@@ -114,7 +113,6 @@ function App() {
     localStorage.removeItem("movies");
     localStorage.removeItem("search-input");
     localStorage.removeItem("checkbox");
-    localStorage.removeItem("savedMovies");
     navigate("/", { replace: true });
   }
 
@@ -250,7 +248,7 @@ function App() {
     );
   }
 
-  //фильтрация сохраненных фильмов
+  //поиск сохраненных фильмов
   function searchSavedMovies() {
     const sortedMovies = sortMovies(
       savedMovies,
