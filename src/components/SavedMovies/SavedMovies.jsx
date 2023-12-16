@@ -8,15 +8,16 @@ export default function SavedMovies({
   preloader,
   onLike,
   onDelete,
-  checkingLike,
+  handleLike,
   searchMovies,
-  setFilterMovies,
   setSearchForm,
   searchForm,
   savedShortDurationCheckbox,
   resetSearchSavedMovies,
   errorMessage,
   onCheckbox,
+  savedMovies,
+  setFilterSavedMovies,
 }) {
   useEffect(() => {
     return () => {
@@ -30,7 +31,6 @@ export default function SavedMovies({
       <section className="movies">
         <SearchForm
           searchMovies={searchMovies}
-          setFilterMovies={setFilterMovies}
           setSearchForm={setSearchForm}
           searchForm={searchForm}
           onCheckbox={onCheckbox}
@@ -43,8 +43,11 @@ export default function SavedMovies({
             movies={movies}
             onLike={onLike}
             onDelete={onDelete}
-            checkingLike={checkingLike}
+            handleLike={handleLike}
             errorMessage={errorMessage}
+            savedMovies={savedMovies}
+            isSaved={true}
+            setFilterSavedMovies={setFilterSavedMovies}
           />
         )}
       </section>

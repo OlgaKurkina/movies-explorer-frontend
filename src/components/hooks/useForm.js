@@ -23,9 +23,12 @@ export default function useForm() {
     setIsCorrect(evt.target.closest("form").checkValidity());
   }
 
-  function setInfo(nameData, emailData) {
-    setFormValue({ name: nameData, email: emailData });
-    console.log(nameData, emailData);
+  function setInfo(name, email) {
+    setFormValue({ name: name, email: email });
+  }
+
+  function resetValidation(error = {}) {
+    setError(error);
   }
 
   return {
@@ -34,5 +37,6 @@ export default function useForm() {
     handleChange,
     isCorrect,
     setInfo,
+    resetValidation,
   };
 }

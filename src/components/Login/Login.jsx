@@ -1,14 +1,20 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../images/header-logo.svg";
 import useForm from "../hooks/useForm";
 import "./login.css";
 
-const Login = ({ onLogin, onLoading }) => {
-  const { formValue, error, handleChange, isCorrect } = useForm();
+const Login = ({ onLogin, onLoading, errorUserDataMessage }) => {
+  const { formValue, error, handleChange, isCorrect, resetValidation } =
+    useForm();
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
     onLogin(formValue.email, formValue.password);
+  };
+
+  const handleValidation = () => {
+    resetValidation();
   };
 
   return (
@@ -55,6 +61,7 @@ const Login = ({ onLogin, onLoading }) => {
           <span className="error error_place_login">
             {error.password || ""}
           </span>
+          <span className="error error__message">{errorUserDataMessage}</span>
           <button
             className={`login-form__button login-form__button_place_login ${
               isCorrect ? "" : "register-form__button_disabled"
@@ -69,7 +76,11 @@ const Login = ({ onLogin, onLoading }) => {
         <div className="redirect">
           <p className="redirect__text">
             Еще не зарегистрированы?{" "}
-            <Link to="/signup" className="redirect__link">
+            <Link
+              to="/signup"
+              className="redirect__link"
+              onClick={handleValidation}
+            >
               Регистрация
             </Link>
           </p>

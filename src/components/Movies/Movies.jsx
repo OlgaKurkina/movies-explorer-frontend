@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import SearchForm from "../SeachForm/SearchForm";
 import MovieCardList from "../MovieCardList/MovieCardList";
 import Preloader from "../Preloader/Preloader";
@@ -9,7 +9,7 @@ export default function Movies({
   preloader,
   onLike,
   onDelete,
-  checkingLike,
+  handleLike,
   searchMovies,
   setFilterMovies,
   setSearchForm,
@@ -17,19 +17,12 @@ export default function Movies({
   shortDurationCheckbox,
   errorMessage,
   onCheckbox,
-  resetSearchMovies,
+  savedMovies,
 }) {
-  useEffect(() => {
-    return () => {
-      resetSearchMovies();
-      if (!shortDurationCheckbox) searchMovies();
-    };
-  }, []);
   return (
     <main className="page">
       <SearchForm
         searchMovies={searchMovies}
-        setFilterMovies={setFilterMovies}
         setSearchForm={setSearchForm}
         searchForm={searchForm}
         onCheckbox={onCheckbox}
@@ -42,8 +35,11 @@ export default function Movies({
           movies={movies}
           onLike={onLike}
           onDelete={onDelete}
-          checkingLike={checkingLike}
+          handleLike={handleLike}
           errorMessage={errorMessage}
+          savedMovies={savedMovies}
+          isSaved={false}
+          setFilterMovies={setFilterMovies}
         />
       )}
     </main>

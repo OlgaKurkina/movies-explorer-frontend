@@ -5,8 +5,9 @@ import useForm from "../hooks/useForm";
 
 import "./register.css";
 
-const Register = ({ onRegister, onLoading }) => {
-  const { formValue, error, handleChange, isCorrect } = useForm();
+const Register = ({ onRegister, onLoading, errorUserDataMessage }) => {
+  const { formValue, error, handleChange, isCorrect, resetValidation } =
+    useForm();
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -15,6 +16,10 @@ const Register = ({ onRegister, onLoading }) => {
       email: formValue.email,
       password: formValue.password,
     });
+  };
+
+  const handleValidation = () => {
+    resetValidation();
   };
 
   return (
@@ -83,6 +88,7 @@ const Register = ({ onRegister, onLoading }) => {
           <span className="error error_place_register">
             {error.password || ""}
           </span>
+          <span className="error error__message">{errorUserDataMessage}</span>
           <button
             className={`register-form__button register-form__button_place_register ${
               isCorrect ? "" : "register-form__button_disabled"
@@ -98,7 +104,11 @@ const Register = ({ onRegister, onLoading }) => {
         <div className="redirect">
           <p className="redirect__text">
             Уже зарегистрированы?
-            <Link to="/signin" className="redirect__link">
+            <Link
+              to="/signin"
+              className="redirect__link"
+              onClick={handleValidation}
+            >
               Войти
             </Link>
           </p>

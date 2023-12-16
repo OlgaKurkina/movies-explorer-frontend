@@ -59,7 +59,7 @@
 }
 
 .login-form__button_place_login {
-  margin-top: 198px;
+  margin-top: 30px;
 }
 
 .login-form__button:hover {
@@ -87,6 +87,13 @@
 .error_place_login {
   margin: 0 0 10px 0;
 }
+.error__message {
+  font-size: 10px;
+  color: rgb(238, 52, 101);
+  margin: 180px 0 0 0;
+  padding: 0;
+  text-align: center;
+}
 
 @media screen and (max-width: 1279px) {
   .login {
@@ -107,10 +114,6 @@
     padding: 42px 0 5px 0;
     max-width: 396px;
     margin: 0 auto;
-  }
-
-  .login-form__button_place_login {
-    margin-top: 200px;
   }
 }
 
