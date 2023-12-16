@@ -11,6 +11,17 @@ export default function SearchForm({
   shortDurationCheckbox,
   savedShortDurationCheckbox,
 }) {
+  const location = useLocation();
+
+  function handleSearch(evt) {
+    evt.preventDefault();
+    searchMovies();
+  }
+
+  function handleChange(evt) {
+    setSearchForm(evt.target.value);
+  }
+
   return (
     <section className="search-section">
       <form className="search-form">
@@ -24,6 +35,7 @@ export default function SearchForm({
           minLength={2}
           maxLength={20}
           value={searchForm}
+          onChange={handleChange}
         ></input>
 
         <button
@@ -31,6 +43,7 @@ export default function SearchForm({
           type="submit"
           name="submit"
           id="submit"
+          onClick={handleSearch}
         >
           Найти
         </button>

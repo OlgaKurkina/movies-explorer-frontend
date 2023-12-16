@@ -10,6 +10,27 @@ function MovieCard({
   savedMovies,
   isSaved,
 }) {
+  const location = useLocation();
+  const isLiked = handleLike(savedMovies, movie);
+
+  function duration(movieDuration) {
+    const hours = Math.floor(movieDuration / 60);
+    const minutes = movieDuration % 60;
+    return `${hours}ч${minutes}м`;
+  }
+
+  function handleLikeClick(evt) {
+    evt.preventDefault();
+    if (isLiked) {
+      onDelete(savedMovies.filter((m) => m.movieId === movie.id)[0]);
+    } else {
+      onLike(movie);
+    }
+  }
+
+  function handleDelete() {
+    onDelete(movie);
+  }
 
   return (
     <li className="movie">
@@ -35,15 +56,15 @@ function MovieCard({
         <div className="movie__like-container">
           {!isSaved ? (
             <button
-              className= "movie__like-btn_active" : "movie__like-btn"
+              className={isLiked ? "movie__like-btn_active" : "movie__like-btn"}
               type="button"
-             
+              onClick={handleLikeClick}
             ></button>
           ) : (
             <button
               className="movie__delete-btn"
               type="button"
-             
+              onClick={handleDelete}
             ></button>
           )}
         </div>
