@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import "./searchForm.css";
 import FilterCheckbox from "../FilterCheckBox/FilterCheckBox";
 
@@ -6,17 +7,20 @@ export default function SearchForm({
   searchForm,
   setSearchForm,
   onCheckbox,
-  shortMovieCheckbox,
   searchMovies,
+  shortDurationCheckbox,
+  savedShortDurationCheckbox,
 }) {
-  const handleSearch = (evt) => {
+  const location = useLocation();
+
+  function handleSearch(evt) {
     evt.preventDefault();
     searchMovies();
-  };
+  }
 
-  const handleChange = (evt) => {
+  function handleChange(evt) {
     setSearchForm(evt.target.value);
-  };
+  }
 
   return (
     <section className="search-section">
@@ -45,7 +49,11 @@ export default function SearchForm({
         </button>
         <FilterCheckbox
           onCheckbox={onCheckbox}
-          shortMovieCheckbox={shortMovieCheckbox}
+          shortMovieCheckbox={
+            location.pathname === "/movies"
+              ? shortDurationCheckbox
+              : savedShortDurationCheckbox
+          }
         />
       </form>
     </section>

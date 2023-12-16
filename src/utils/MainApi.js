@@ -45,8 +45,6 @@ class Api {
       method: "PATCH",
       headers: this._setHeaders(),
       body: JSON.stringify({
-        // name,
-        // email,
         name: data.name,
         email: data.email,
       }),
@@ -54,16 +52,30 @@ class Api {
   }
 
   addMovie(movie) {
-    // console.log(movie);
+    console.log(movie.id);
     return this._getRequest(`${this._basePath}/movies`, {
       method: "POST",
       headers: this._setHeaders(),
-      body: JSON.stringify(movie),
+      body: JSON.stringify({
+        country: movie.country,
+        director: movie.director,
+        duration: movie.duration,
+        year: movie.year,
+        description: movie.description,
+        image: "https://api.nomoreparties.co" + movie.image.url,
+        trailerLink: movie.trailerLink,
+        thumbnail:
+          "https://api.nomoreparties.co" + movie.image.formats.thumbnail.url,
+        movieId: movie.id,
+        nameRU: movie.nameRU,
+        nameEN: movie.nameEN,
+      }),
     });
   }
 
   //удаление фильма из сохраненных
   deleteMovie(movieId) {
+    console.log(movieId);
     return this._getRequest(`${this._basePath}/movies/${movieId}`, {
       method: "DELETE",
       headers: this._setHeaders(),

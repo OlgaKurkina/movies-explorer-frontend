@@ -27,6 +27,7 @@ export const authorize = (email, password) => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
+      credentials: "include",
     },
     body: JSON.stringify({ email, password }),
   }).then((res) => getResponse(res));
@@ -39,6 +40,7 @@ export const checkToken = (token) => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
+      credentials: "include",
       Authorization: `Bearer ${token}`,
     },
   }).then((res) => getResponse(res));

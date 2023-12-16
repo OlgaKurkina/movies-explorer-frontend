@@ -49,7 +49,6 @@
 .error {
   font-size: 10px;
   color: rgb(238, 52, 101);
-
   padding: 0;
 }
 
@@ -83,7 +82,7 @@
   }
 
   .register-form__button_place_register {
-    margin-top: 134px;
+    margin-top: 30px;
   }
 
   .redirect {
