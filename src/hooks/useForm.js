@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { REG_EMAIL } from "../../utils/constants.js";
+import { REG_EMAIL } from "../utils/constants";
 
 export default function useForm() {
   const [formValue, setFormValue] = useState({

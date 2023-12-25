@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import SearchForm from "../SeachForm/SearchForm";
 import MovieCardList from "../MovieCardList/MovieCardList";
 import Preloader from "../Preloader/Preloader";

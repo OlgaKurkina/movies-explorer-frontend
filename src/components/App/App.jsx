@@ -12,7 +12,7 @@ import Movies from "../Movies/Movies";
 import SavedMovies from "../SavedMovies/SavedMovies";
 import NotFound from "../NotFound/NotFound";
 import Preloader from "../Preloader/Preloader.js";
-import { CurrentUserContext } from "../context/CurrentUserContext";
+import { CurrentUserContext } from "../../context/CurrentUserContext";
 import * as auth from "../../utils/MainAuth.js";
 import { api } from "../../utils/MainApi";
 import { getMovieList } from "../../utils/MoviesApi";
@@ -38,9 +38,6 @@ function App() {
   const [errorMessage, setErrorMessage] = useState("");
   const [errorProfileMessage, setErrorProfileMessage] = useState("");
   const [errorUserDataMessage, setErrorUserDataMessage] = useState("");
-
-  const [showAllMovies, setShowAllMovies] = useState(savedMovies);
-  const [foundMovies, setFoundMovies] = useState([]);
 
   const navigate = useNavigate();
 
@@ -218,7 +215,7 @@ function App() {
       getFilms();
       setErrorMessage("");
     }
-  }; // [movies, searchForm]);
+  };
 
   //сохранение фильмов
   function saveMovies(movies) {
@@ -311,7 +308,7 @@ function App() {
   useEffect(() => {
     if (isUserFirstSearch) return;
     searchMovies();
-  }, [shortDurationCheckbox, isUserFirstSearch]);
+  }, [shortDurationCheckbox, savedMovies]);
 
   function handleCheckBox() {
     setShortDurationCheckbox(!shortDurationCheckbox);

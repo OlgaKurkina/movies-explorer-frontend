@@ -6,7 +6,7 @@ const FilterCheckbox = ({ onCheckbox, shortMovieCheckbox }) => {
     <label className="checkbox">
       <input
         className="checkbox__input"
-        type="radio"
+        type="checkbox"
         name="short-films"
         onChange={onCheckbox}
         checked={shortMovieCheckbox}

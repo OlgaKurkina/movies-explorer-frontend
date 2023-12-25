@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Logo from "../../images/header-logo.svg";
 import { Link } from "react-router-dom";
-import useForm from "../hooks/useForm";
-//import { REG_EX_EMAIL } from "../../utils/constants.js";
+import useForm from "../../hooks/useForm";
 import "./register.css";
 
 const Register = ({ onRegister, onLoading, errorUserDataMessage }) => {

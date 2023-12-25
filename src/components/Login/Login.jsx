@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../images/header-logo.svg";
-import useForm from "../hooks/useForm";
-//import { REG_EX_EMAIL } from "../../utils/constants.js";
+import useForm from "../../hooks/useForm";
 import "./login.css";
 
 const Login = ({ onLogin, onLoading, errorUserDataMessage, isLoggedIn }) => {
