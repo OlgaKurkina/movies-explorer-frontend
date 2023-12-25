@@ -28,7 +28,8 @@ function MovieCard({
     }
   }
 
-  function handleDelete() {
+  function handleDelete(evt) {
+    evt.preventDefault();
     onDelete(movie);
   }
 

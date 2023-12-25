@@ -1,21 +1,30 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../images/header-logo.svg";
 import useForm from "../hooks/useForm";
+//import { REG_EX_EMAIL } from "../../utils/constants.js";
 import "./login.css";
 
-const Login = ({ onLogin, onLoading, errorUserDataMessage }) => {
+const Login = ({ onLogin, onLoading, errorUserDataMessage, isLoggedIn }) => {
   const { formValue, error, handleChange, isCorrect, resetValidation } =
     useForm();
+
+  const [sending, setSending] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
     onLogin(formValue.email, formValue.password);
+    setSending(true);
   };
 
   const handleValidation = () => {
     resetValidation();
   };
+
+  useEffect(() => {
+    isLoggedIn && navigate("/", { replace: true });
+  });
 
   return (
     <>
@@ -69,6 +78,7 @@ const Login = ({ onLogin, onLoading, errorUserDataMessage }) => {
             type="submit"
             name="login__button"
             id="login__button"
+            disabled={sending ? true : false}
           >
             {onLoading ? "Сохранение..." : "Войти"}
           </button>

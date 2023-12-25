@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { CurrentUserContext } from "../context/CurrentUserContext";
 import useForm from "../hooks/useForm";
+//import { REG_EX_EMAIL } from "../../utils/constants.js";
 import "./profile.css";
 
 function Profile({ onUpdateUser, onSignOut, errorProfileMessage }) {
@@ -75,6 +76,7 @@ function Profile({ onUpdateUser, onSignOut, errorProfileMessage }) {
                 placeholder="Email"
                 value={isChanging ? formValue.email : currentUser.email || ""}
                 onChange={handleCheck}
+                // pattern={REG_EX_EMAIL}
               />
             </label>
             <span className="error error_place_profile">
@@ -104,7 +106,7 @@ function Profile({ onUpdateUser, onSignOut, errorProfileMessage }) {
           </form>
         </section>
         <div className="profile-signout">
-          <Link to="/signin" className="profile-link" onClick={onSignOut}>
+          <Link to="/" className="profile-link" onClick={onSignOut}>
             Выйти из аккаунта
           </Link>
         </div>

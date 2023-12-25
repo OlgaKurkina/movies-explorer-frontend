@@ -12,12 +12,11 @@ export default function SavedMovies({
   searchMovies,
   setSearchForm,
   searchForm,
-  savedShortDurationCheckbox,
   resetSearchSavedMovies,
   errorMessage,
   onCheckbox,
   savedMovies,
-  setFilterSavedMovies,
+  savedShortDurationCheckbox,
 }) {
   useEffect(() => {
     return () => {
@@ -47,7 +46,6 @@ export default function SavedMovies({
             errorMessage={errorMessage}
             savedMovies={savedMovies}
             isSaved={true}
-            setFilterSavedMovies={setFilterSavedMovies}
           />
         )}
       </section>

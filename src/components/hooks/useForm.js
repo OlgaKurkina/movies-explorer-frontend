@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { REG_EMAIL } from "../../utils/constants.js";
 
 export default function useForm() {
   const [formValue, setFormValue] = useState({
@@ -10,6 +11,12 @@ export default function useForm() {
   const [error, setError] = useState({});
   const [isCorrect, setIsCorrect] = useState(false);
 
+  const emailCheck = REG_EMAIL;
+
+  function isValidEmail(email) {
+    return emailCheck.test(email);
+  }
+
   function handleChange(evt) {
     const name = evt.target.name;
     const value = evt.target.value;
@@ -18,8 +25,13 @@ export default function useForm() {
       ...formValue,
       [name]: value,
     });
-
-    setError({ ...error, [name]: evt.target.validationMessage });
+    if (name === "email") {
+      if (!isValidEmail(evt.target.value)) {
+        setError({ ...error, [name]: "Укажите корректный email" });
+      } else setError({ ...error, [name]: evt.target.validationMessage });
+    } else {
+      setError({ ...error, [name]: evt.target.validationMessage });
+    }
     setIsCorrect(evt.target.closest("form").checkValidity());
   }
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SearchForm from "../SeachForm/SearchForm";
 import MovieCardList from "../MovieCardList/MovieCardList";
 import Preloader from "../Preloader/Preloader";
@@ -11,7 +11,6 @@ export default function Movies({
   onDelete,
   handleLike,
   searchMovies,
-  setFilterMovies,
   setSearchForm,
   searchForm,
   shortDurationCheckbox,
@@ -39,7 +38,6 @@ export default function Movies({
           errorMessage={errorMessage}
           savedMovies={savedMovies}
           isSaved={false}
-          setFilterMovies={setFilterMovies}
         />
       )}
     </main>

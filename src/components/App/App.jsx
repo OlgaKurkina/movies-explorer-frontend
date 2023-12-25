@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
+
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Profile from "../Profile/Profile";
@@ -38,10 +39,10 @@ function App() {
   const [errorProfileMessage, setErrorProfileMessage] = useState("");
   const [errorUserDataMessage, setErrorUserDataMessage] = useState("");
 
+  const [showAllMovies, setShowAllMovies] = useState(savedMovies);
+  const [foundMovies, setFoundMovies] = useState([]);
+
   const navigate = useNavigate();
-  const onBackPage = () => {
-    navigate(-1);
-  };
 
   const location = useLocation();
   const headerRoutes = ["/", "/profile", "/movies", "/saved-movies"];
@@ -113,13 +114,14 @@ function App() {
     localStorage.removeItem("movies");
     localStorage.removeItem("search-input");
     localStorage.removeItem("checkbox");
+    localStorage.removeItem("filterMovies");
     navigate("/", { replace: true });
   }
 
   //проверка токена
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
-    console.log(jwt);
+    // console.log(jwt);
     if (jwt) {
       auth.checkToken(jwt);
       api
@@ -127,6 +129,7 @@ function App() {
         .then((res) => {
           if (res) {
             setIsLoggedIn(true);
+            navigate(location.pathname);
           }
         })
         .catch((err) => console.log(err));
@@ -167,8 +170,13 @@ function App() {
         .then(([user, savedMovies]) => {
           setCurrentUser(user.data);
           setSavedMovies(savedMovies);
-          setMovies(movies);
-          setFilterMovies(filterMovies);
+          setMovies(JSON.parse(localStorage.getItem("movies")) ?? movies);
+          setFilterMovies(
+            JSON.parse(localStorage.getItem("filterMovies")) ?? filterMovies
+          );
+          setSearchForm(localStorage.getItem("search-input") ?? searchForm);
+
+          setShortDurationCheckbox(localStorage.getItem("checkbox") === "true");
         })
         .catch((err) => console.log(err));
     }
@@ -193,7 +201,8 @@ function App() {
   }
 
   //поиск фильмов
-  function searchMovies() {
+
+  const searchMovies = () => {
     setErrorMessage("");
     setIsUserFirstSearch(false);
     if (!searchForm) {
@@ -209,7 +218,7 @@ function App() {
       getFilms();
       setErrorMessage("");
     }
-  }
+  }; // [movies, searchForm]);
 
   //сохранение фильмов
   function saveMovies(movies) {
@@ -218,7 +227,7 @@ function App() {
       searchForm,
       shortDurationCheckbox
     );
-    localStorage.setItem("movies", JSON.stringify(newFilteredMovies));
+    localStorage.setItem("filterMovies", JSON.stringify(newFilteredMovies));
     localStorage.setItem("search-input", searchForm);
     localStorage.setItem("checkbox", shortDurationCheckbox);
     setFilterMovies(newFilteredMovies);
@@ -234,7 +243,7 @@ function App() {
     } else {
       setErrorMessage("");
     }
-  }, [filterMovies, searchForm, errorMessage]);
+  }, [filterMovies, searchForm, errorMessage, movies.length]);
 
   //фильтрация фильмов
   function sortMovies(movies, searchForm, checkbox) {
@@ -258,7 +267,11 @@ function App() {
     setFilterSavedMovies(sortedMovies);
   }
 
-  useEffect(searchSavedMovies, [savedShortDurationCheckbox, savedMovies]);
+  useEffect(searchSavedMovies, [
+    savedShortDurationCheckbox,
+    savedMovies,
+    searchSavedForm,
+  ]);
 
   //проверка лайка
   function handleLike(savedMovies, movie) {
@@ -271,6 +284,7 @@ function App() {
       .addMovie(movie)
       .then((newMovie) => {
         setSavedMovies([newMovie, ...savedMovies]);
+        setFilterSavedMovies([newMovie, ...savedMovies]);
       })
       .catch((err) => {
         console.log(err);
@@ -285,35 +299,19 @@ function App() {
         setSavedMovies((savedMovies) =>
           savedMovies.filter((element) => element._id !== movie._id)
         );
+        setFilterSavedMovies(
+          savedMovies.filter((element) => element._id !== movie._id)
+        );
       })
       .catch((err) => {
         console.log(err);
       });
   }
 
-  function resetSearchMovies() {
-    setSearchForm("");
-    setShortDurationCheckbox(false);
-    setErrorMessage("");
-  }
-
-  useEffect(() => {
-    return () => {
-      resetSearchMovies();
-      if (!shortDurationCheckbox) searchMovies();
-    };
-  }, []);
-
   useEffect(() => {
     if (isUserFirstSearch) return;
     searchMovies();
-  }, [shortDurationCheckbox, savedMovies]);
-
-  function resetSearchSavedMovies() {
-    setSearchSavedForm("");
-    setSavedShortDurationCheckbox(false);
-    setErrorMessage("");
-  }
+  }, [shortDurationCheckbox, isUserFirstSearch]);
 
   function handleCheckBox() {
     setShortDurationCheckbox(!shortDurationCheckbox);
@@ -321,6 +319,12 @@ function App() {
 
   function handleSavedCheckBox() {
     setSavedShortDurationCheckbox(!savedShortDurationCheckbox);
+  }
+
+  function resetSearchSavedMovies() {
+    setSearchSavedForm("");
+    setSavedShortDurationCheckbox(false);
+    setErrorMessage("");
   }
 
   if (isLoading) return <Preloader />;
@@ -355,7 +359,6 @@ function App() {
                 onCheckbox={handleCheckBox}
                 shortDurationCheckbox={shortDurationCheckbox}
                 errorMessage={errorMessage}
-                resetSearchMovies={resetSearchMovies}
                 savedMovies={savedMovies}
               />
             }
@@ -373,12 +376,13 @@ function App() {
                 onDelete={onDeleteMovie}
                 handleLike={handleLike}
                 setSearchForm={setSearchSavedForm}
-                setFilterSavedMovies={setFilterSavedMovies}
+                setFilterMovies={setFilterMovies}
                 resetSearchSavedMovies={resetSearchSavedMovies}
                 onCheckbox={handleSavedCheckBox}
                 savedShortDurationCheckbox={savedShortDurationCheckbox}
                 errorMessage={errorMessage}
                 savedMovies={savedMovies}
+                searchForm={searchSavedForm}
               />
             }
           />
@@ -402,6 +406,7 @@ function App() {
                 onLogin={handleLogin}
                 onLoading={isLoading}
                 errorUserDataMessage={errorUserDataMessage}
+                isLoggedIn={isLoggedIn}
               />
             }
           />
@@ -415,7 +420,7 @@ function App() {
               />
             }
           />
-          <Route path="*" element={<NotFound onGoBack={onBackPage} />} />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
         {footerRoutes.includes(location.pathname) && <Footer />}
       </div>
