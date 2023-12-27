@@ -33,12 +33,12 @@ export default function Navigation({ isLoggedIn, isOpen, handlePopup }) {
           <div className="profile-btn profile-btn_place_header">
             <Link to="/profile" className="profile-btn__link">
               Аккаунт
+              <img
+                className="profile-icon profile-btn__icon"
+                src={Account}
+                alt="Профиль пользователя"
+              />
             </Link>
-            <img
-              className="profile-icon profile-btn__icon"
-              src={Account}
-              alt="Профиль пользователя"
-            />
           </div>
           <button
             className="burger-menu"

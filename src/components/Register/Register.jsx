@@ -1,18 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import Logo from "../../images/header-logo.svg";
 import { Link } from "react-router-dom";
 import useForm from "../../hooks/useForm";
 import "./register.css";
 
-const Register = ({ onRegister, onLoading, errorUserDataMessage }) => {
+const Register = ({ onRegister, onLoading, errorUserDataMessage, sending }) => {
   const { formValue, error, handleChange, isCorrect, resetValidation } =
     useForm();
 
-  const [sending, setSending] = useState(false);
-
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    setSending(true);
     onRegister({
       name: formValue.name,
       email: formValue.email,
@@ -94,7 +91,7 @@ const Register = ({ onRegister, onLoading, errorUserDataMessage }) => {
           <button
             disabled={sending ? true : false}
             className={`register-form__button register-form__button_place_register ${
-              isCorrect ? "" : "register-form__button_disabled"
+              isCorrect || sending ? "" : "register-form__button_disabled"
             }`}
             type="submit"
             name="register__button"

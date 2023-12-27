@@ -39,6 +39,8 @@ function App() {
   const [errorProfileMessage, setErrorProfileMessage] = useState("");
   const [errorUserDataMessage, setErrorUserDataMessage] = useState("");
 
+  const [sending, setSending] = useState(false);
+
   const navigate = useNavigate();
 
   const location = useLocation();
@@ -51,6 +53,7 @@ function App() {
 
   //регистрация
   function handleRegister({ name, email, password }) {
+    setSending(true);
     setErrorUserDataMessage("");
     auth
       .register(name, email, password)
@@ -70,11 +73,16 @@ function App() {
           setErrorUserDataMessage(ERRORS.REGISTER_400);
           console.log(err);
         }
+      })
+      .finally(() => {
+        setTimeout(() => setErrorUserDataMessage(""), 3000);
+        setSending(false);
       });
   }
 
   //авторизация
   function handleLogin(email, password) {
+    setSending(true);
     setErrorUserDataMessage("");
     auth
       .authorize(email, password)
@@ -97,6 +105,10 @@ function App() {
           setErrorUserDataMessage(ERRORS.LOGIN_400);
           console.log(err);
         }
+      })
+      .finally(() => {
+        setTimeout(() => setErrorUserDataMessage(""), 3000);
+        setSending(false);
       });
   }
 
@@ -404,6 +416,7 @@ function App() {
                 onLoading={isLoading}
                 errorUserDataMessage={errorUserDataMessage}
                 isLoggedIn={isLoggedIn}
+                sending={sending}
               />
             }
           />
@@ -414,6 +427,7 @@ function App() {
                 onRegister={handleRegister}
                 onLoading={isLoading}
                 errorUserDataMessage={errorUserDataMessage}
+                sending={sending}
               />
             }
           />

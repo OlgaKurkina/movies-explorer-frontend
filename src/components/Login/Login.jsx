@@ -1,20 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../images/header-logo.svg";
 import useForm from "../../hooks/useForm";
 import "./login.css";
 
-const Login = ({ onLogin, onLoading, errorUserDataMessage, isLoggedIn }) => {
+const Login = ({
+  onLogin,
+  onLoading,
+  errorUserDataMessage,
+  isLoggedIn,
+  sending,
+}) => {
   const { formValue, error, handleChange, isCorrect, resetValidation } =
     useForm();
 
-  const [sending, setSending] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
     onLogin(formValue.email, formValue.password);
-    setSending(true);
   };
 
   const handleValidation = () => {
@@ -72,7 +76,7 @@ const Login = ({ onLogin, onLoading, errorUserDataMessage, isLoggedIn }) => {
           <span className="error error__message">{errorUserDataMessage}</span>
           <button
             className={`login-form__button login-form__button_place_login ${
-              isCorrect ? "" : "register-form__button_disabled"
+              isCorrect || sending ? "" : "register-form__button_disabled"
             }`}
             type="submit"
             name="login__button"
