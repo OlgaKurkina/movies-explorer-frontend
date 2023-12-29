@@ -16,12 +16,13 @@ export default function SavedMovies({
   errorMessage,
   onCheckbox,
   savedMovies,
-  savedShortDurationCheckbox,
+  shortDurationCheckbox,
+  setFilterMovies,
 }) {
   useEffect(() => {
     return () => {
       resetSearchSavedMovies();
-      if (!savedShortDurationCheckbox) searchMovies();
+      if (!shortDurationCheckbox) searchMovies();
     };
   }, []);
 
@@ -33,7 +34,8 @@ export default function SavedMovies({
           setSearchForm={setSearchForm}
           searchForm={searchForm}
           onCheckbox={onCheckbox}
-          savedShortDurationCheckbox={savedShortDurationCheckbox}
+          shortDurationCheckbox={shortDurationCheckbox}
+          setFilterMovies={setFilterMovies}
         />
         {preloader ? (
           <Preloader />

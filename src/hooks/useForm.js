@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { REG_EMAIL } from "../utils/constants";
+import { REG_EX_EMAIL } from "../utils/constants";
 
 export default function useForm() {
   const [formValue, setFormValue] = useState({
@@ -11,7 +11,7 @@ export default function useForm() {
   const [error, setError] = useState({});
   const [isCorrect, setIsCorrect] = useState(false);
 
-  const emailCheck = REG_EMAIL;
+  const emailCheck = REG_EX_EMAIL;
 
   function isValidEmail(email) {
     return emailCheck.test(email);

@@ -1,7 +1,7 @@
 import React from "react";
 import "./filterCheckbox.css";
 
-const FilterCheckbox = ({ onCheckbox, shortMovieCheckbox }) => {
+const FilterCheckbox = ({ onCheckbox, shortDurationCheckbox }) => {
   return (
     <label className="checkbox">
       <input
@@ -9,7 +9,7 @@ const FilterCheckbox = ({ onCheckbox, shortMovieCheckbox }) => {
         type="checkbox"
         name="short-films"
         onChange={onCheckbox}
-        checked={shortMovieCheckbox}
+        checked={shortDurationCheckbox}
       />
       <span className="checkbox__name">Короткометражки</span>
     </label>

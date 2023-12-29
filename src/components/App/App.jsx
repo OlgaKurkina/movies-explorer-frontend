@@ -151,6 +151,7 @@ function App() {
     setIsLoading(true);
     api
       .updateProfile(newData)
+
       .then((data) => {
         setCurrentUser(data);
         setErrorProfileMessage(ERRORS.IS_SUCCESS);
@@ -324,6 +325,7 @@ function App() {
 
   function handleCheckBox() {
     setShortDurationCheckbox(!shortDurationCheckbox);
+    searchMovies();
   }
 
   function handleSavedCheckBox() {
@@ -388,7 +390,7 @@ function App() {
                 setFilterMovies={setFilterMovies}
                 resetSearchSavedMovies={resetSearchSavedMovies}
                 onCheckbox={handleSavedCheckBox}
-                savedShortDurationCheckbox={savedShortDurationCheckbox}
+                shortDurationCheckbox={savedShortDurationCheckbox}
                 errorMessage={errorMessage}
                 savedMovies={savedMovies}
                 searchForm={searchSavedForm}
@@ -405,6 +407,7 @@ function App() {
                 errorProfileMessage={errorProfileMessage}
                 onUpdateUser={handleUpdateUser}
                 onSignOut={handleSignOut}
+                sending={sending}
               />
             }
           />

@@ -8,7 +8,12 @@ function Profile({ onUpdateUser, onSignOut, errorProfileMessage }) {
   const currentUser = useContext(CurrentUserContext);
   const [buttonDisabled, setButtonDisabled] = useState(false);
   const [isChanging, setIsChanging] = useState(false);
-  const { formValue, error, handleChange, setInfo } = useForm();
+  const { formValue, error, handleChange, setInfo, isCorrect } = useForm();
+
+  const disableButton =
+    !isCorrect ||
+    (currentUser.name === formValue.name &&
+      currentUser.email === formValue.email);
 
   function handleEditProfile() {
     setIsChanging(true);
@@ -21,7 +26,12 @@ function Profile({ onUpdateUser, onSignOut, errorProfileMessage }) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    onUpdateUser(formValue);
+
+    if (isCorrect) {
+      onUpdateUser(formValue);
+    } else {
+      setIsChanging(true);
+    }
   }
 
   useEffect(() => {
@@ -85,10 +95,14 @@ function Profile({ onUpdateUser, onSignOut, errorProfileMessage }) {
               type="submit"
               className={`profile__submit-btn ${
                 isChanging ? "" : "profile__submit-btn_hidden"
-              } ${buttonDisabled ? "profile__submit-btn_disabled" : ""}`}
+              } ${
+                buttonDisabled || !isCorrect
+                  ? "profile__submit-btn_disabled"
+                  : ""
+              }`}
               name="submit"
               defaultValue="Сохранить"
-              disabled={isChanging && buttonDisabled ? true : false}
+              disabled={disableButton}
             >
               Сохранить
             </button>

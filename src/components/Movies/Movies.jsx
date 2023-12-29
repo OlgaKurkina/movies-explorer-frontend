@@ -17,6 +17,7 @@ export default function Movies({
   errorMessage,
   onCheckbox,
   savedMovies,
+  setFilterMovies,
 }) {
   return (
     <main className="page">
@@ -26,6 +27,7 @@ export default function Movies({
         searchForm={searchForm}
         onCheckbox={onCheckbox}
         shortDurationCheckbox={shortDurationCheckbox}
+        setFilterMovies={setFilterMovies}
       />
       {preloader ? (
         <Preloader />
