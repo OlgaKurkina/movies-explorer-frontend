@@ -85,6 +85,7 @@ function Profile({ onUpdateUser, onSignOut, errorProfileMessage }) {
                 placeholder="Email"
                 value={isChanging ? formValue.email : currentUser.email || ""}
                 onChange={handleCheck}
+                pattern="^\w+@\w+.(com|net|ru)$"
               />
             </label>
             <span className="error error_place_profile">

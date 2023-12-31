@@ -52,6 +52,7 @@ const Login = ({
               placeholder="Email"
               value={formValue.email}
               onChange={handleChange}
+              pattern="^\w+@\w+.(com|net|ru)$"
             />
           </label>
           <span className="error error_place_login">{error.email || ""}</span>
@@ -81,7 +82,7 @@ const Login = ({
             type="submit"
             name="login__button"
             id="login__button"
-            disabled={sending ? true : false}
+            disabled={sending || !isCorrect ? true : false}
           >
             {onLoading ? "Сохранение..." : "Войти"}
           </button>

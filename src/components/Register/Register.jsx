@@ -64,6 +64,7 @@ const Register = ({ onRegister, onLoading, errorUserDataMessage, sending }) => {
               placeholder="Email"
               value={formValue.email || ""}
               onChange={handleChange}
+              pattern="^\w+@\w+.(com|net|ru)$"
             />
           </label>
           <span className="error error_place_register">
@@ -89,7 +90,7 @@ const Register = ({ onRegister, onLoading, errorUserDataMessage, sending }) => {
           </span>
           <span className="error error__message">{errorUserDataMessage}</span>
           <button
-            disabled={sending ? true : false}
+            disabled={sending || !isCorrect ? true : false}
             className={`register-form__button register-form__button_place_register ${
               isCorrect || sending ? "" : "register-form__button_disabled"
             }`}
