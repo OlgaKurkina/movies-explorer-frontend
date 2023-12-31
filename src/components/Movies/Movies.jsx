@@ -11,13 +11,13 @@ export default function Movies({
   onDelete,
   handleLike,
   searchMovies,
-  setFilterMovies,
   setSearchForm,
   searchForm,
   shortDurationCheckbox,
   errorMessage,
   onCheckbox,
   savedMovies,
+  setFilterMovies,
 }) {
   return (
     <main className="page">
@@ -27,6 +27,7 @@ export default function Movies({
         searchForm={searchForm}
         onCheckbox={onCheckbox}
         shortDurationCheckbox={shortDurationCheckbox}
+        setFilterMovies={setFilterMovies}
       />
       {preloader ? (
         <Preloader />
@@ -39,7 +40,6 @@ export default function Movies({
           errorMessage={errorMessage}
           savedMovies={savedMovies}
           isSaved={false}
-          setFilterMovies={setFilterMovies}
         />
       )}
     </main>

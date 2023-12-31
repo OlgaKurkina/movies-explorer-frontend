@@ -20,6 +20,7 @@ export default function useForm() {
     });
 
     setError({ ...error, [name]: evt.target.validationMessage });
+    console.log(value);
     setIsCorrect(evt.target.closest("form").checkValidity());
   }
 

@@ -1,11 +1,26 @@
 import React from "react";
 import Logo from "../../images/header-logo.svg";
 import { Link } from "react-router-dom";
-import useForm from "../hooks/useForm";
-
+import useForm from "../../hooks/useForm";
 import "./register.css";
 
-const Register = ({ onRegister, onLoading, errorUserDataMessage }) => {
+const Register = ({ onRegister, onLoading, errorUserDataMessage, sending }) => {
+  const { formValue, error, handleChange, isCorrect, resetValidation } =
+    useForm();
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    onRegister({
+      name: formValue.name,
+      email: formValue.email,
+      password: formValue.password,
+    });
+  };
+
+  const handleValidation = () => {
+    resetValidation();
+  };
+
   return (
     <>
       <main className="content">
@@ -19,7 +34,7 @@ const Register = ({ onRegister, onLoading, errorUserDataMessage }) => {
           </Link>
           <h1 className="wellcome">Добро пожаловать!</h1>
         </section>
-        <form className="register-form">
+        <form className="register-form" onSubmit={handleSubmit}>
           <label className="label label_place_register">
             Имя
             <input
@@ -32,6 +47,7 @@ const Register = ({ onRegister, onLoading, errorUserDataMessage }) => {
               maxLength={20}
               placeholder="Имя"
               value={formValue.name || ""}
+              onChange={handleChange}
             />
           </label>
           <span className="error error_place_register">{error.name || ""}</span>
@@ -47,6 +63,8 @@ const Register = ({ onRegister, onLoading, errorUserDataMessage }) => {
               maxLength={20}
               placeholder="Email"
               value={formValue.email || ""}
+              onChange={handleChange}
+              pattern="^\w+@\w+.(com|net|ru)$"
             />
           </label>
           <span className="error error_place_register">
@@ -64,6 +82,7 @@ const Register = ({ onRegister, onLoading, errorUserDataMessage }) => {
               maxLength={20}
               placeholder="Пароль"
               value={formValue.password || ""}
+              onChange={handleChange}
             />
           </label>
           <span className="error error_place_register">
@@ -71,12 +90,14 @@ const Register = ({ onRegister, onLoading, errorUserDataMessage }) => {
           </span>
           <span className="error error__message">{errorUserDataMessage}</span>
           <button
+            disabled={sending || !isCorrect ? true : false}
             className={`register-form__button register-form__button_place_register ${
-              isCorrect ? "" : "register-form__button_disabled"
+              isCorrect || sending ? "" : "register-form__button_disabled"
             }`}
             type="submit"
             name="register__button"
             id="register__button"
+            onSubmit={handleSubmit}
           >
             {onLoading ? "Сохранение..." : "Зарегистрироваться"}
           </button>
@@ -84,7 +105,11 @@ const Register = ({ onRegister, onLoading, errorUserDataMessage }) => {
         <div className="redirect">
           <p className="redirect__text">
             Уже зарегистрированы?
-            <Link to="/signin" className="redirect__link">
+            <Link
+              to="/signin"
+              className="redirect__link"
+              onClick={handleValidation}
+            >
               Войти
             </Link>
           </p>

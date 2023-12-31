@@ -87,6 +87,10 @@
   transition: ease-in;
 }
 
+.profile-btn__icon {
+  margin: 0 0 0 10px;
+}
+
 .burger-menu {
   width: 44px;
   height: 44px;

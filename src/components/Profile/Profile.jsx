@@ -1,16 +1,59 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { CurrentUserContext } from "../context/CurrentUserContext";
-import useForm from "../hooks/useForm";
+import { CurrentUserContext } from "../../context/CurrentUserContext";
+import useForm from "../../hooks/useForm";
 import "./profile.css";
 
 function Profile({ onUpdateUser, onSignOut, errorProfileMessage }) {
+  const currentUser = useContext(CurrentUserContext);
+  const [buttonDisabled, setButtonDisabled] = useState(false);
+  const [isChanging, setIsChanging] = useState(false);
+  const { formValue, error, handleChange, setInfo, isCorrect } = useForm();
+
+  const disableButton =
+    !isCorrect ||
+    (currentUser.name === formValue.name &&
+      currentUser.email === formValue.email);
+
+  function handleEditProfile() {
+    setIsChanging(true);
+    setInfo(currentUser.name, currentUser.email);
+  }
+
+  function handleCheck(evt) {
+    handleChange(evt);
+  }
+
+  function handleSubmit(evt) {
+    evt.preventDefault();
+
+    if (isCorrect) {
+      onUpdateUser(formValue);
+    } else {
+      setIsChanging(true);
+    }
+  }
+
+  useEffect(() => {
+    if (
+      formValue.name === currentUser.name &&
+      formValue.email === currentUser.email
+    ) {
+      setButtonDisabled(true);
+    } else {
+      setButtonDisabled(false);
+    }
+  }, [formValue.name, formValue.email, currentUser.name, currentUser.email]);
+
   return (
     <>
       <main className="content">
         <section className="profile">
           <h1 className="profile__wellcome">Привет, {currentUser.name}!</h1>
-          <form className="profile__form">
+          <form
+            className="profile__form"
+            onSubmit={isChanging ? handleSubmit : handleEditProfile}
+          >
             <label className="label label_place_profile">
               Имя
               <input
@@ -23,6 +66,7 @@ function Profile({ onUpdateUser, onSignOut, errorProfileMessage }) {
                 required
                 placeholder="Имя"
                 value={isChanging ? formValue.name : currentUser.name || ""}
+                onChange={handleCheck}
               />
             </label>
             <span className="error error_place_profile">
@@ -40,6 +84,8 @@ function Profile({ onUpdateUser, onSignOut, errorProfileMessage }) {
                 required
                 placeholder="Email"
                 value={isChanging ? formValue.email : currentUser.email || ""}
+                onChange={handleCheck}
+                pattern="^\w+@\w+.(com|net|ru)$"
               />
             </label>
             <span className="error error_place_profile">
@@ -48,19 +94,32 @@ function Profile({ onUpdateUser, onSignOut, errorProfileMessage }) {
             <span className="profile-error">{errorProfileMessage}</span>
             <button
               type="submit"
-              className="profile__submit-btn"
+              className={`profile__submit-btn ${
+                isChanging ? "" : "profile__submit-btn_hidden"
+              } ${
+                buttonDisabled || !isCorrect
+                  ? "profile__submit-btn_disabled"
+                  : ""
+              }`}
               name="submit"
               defaultValue="Сохранить"
+              disabled={disableButton}
             >
               Сохранить
             </button>
-            <button className="profile__button" type="button">
+            <button
+              className={`profile__button ${
+                isChanging ? "profile__button_hidden" : ""
+              }`}
+              type="button"
+              onClick={handleEditProfile}
+            >
               Редактировать
             </button>
           </form>
         </section>
         <div className="profile-signout">
-          <Link to="/signin" className="profile-link" onClick={onSignOut}>
+          <Link to="/" className="profile-link" onClick={onSignOut}>
             Выйти из аккаунта
           </Link>
         </div>
